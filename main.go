@@ -202,7 +202,11 @@ func createHTTPClient(v *viper.Viper, logger *zap.Logger) (*http.Client, error) 
 		}
 	}
 
-	tlsConfig := &tls.Config{}
+	// Supported TLS versions
+	tlsConfig := &tls.Config{
+		MinVersion: tls.VersionTLS12,
+		MaxVersion: tls.VersionTLS13,
+	}
 
 	if len(clientKeyEncoded) > 0 && len(clientCertEncoded) > 0 {
 
@@ -349,6 +353,7 @@ func main() {
 	flag.Bool("exit-on-error", false, "exit on first health check error")
 	flag.String("log-env", "development", "logging config: development or production")
 	flag.String("log-level", "error", "log level: debug, info, warn, error, dpanic, panic, or fatal")
+	flag.Bool("verbose", false, "output extra information")
 
 	flag.Parse(os.Args[1:])
 
