@@ -423,7 +423,7 @@ func main() {
 	completionCommand := &cobra.Command{
 		Use:   "completion",
 		Short: "Generates bash completion scripts",
-		Long:  "To install completion scripts run:\nhealth-checker completion > /usr/local/etc/bash_completion.d/find-guardduty-user",
+		Long:  "To install completion scripts run:\nhealth-checker completion > /usr/local/etc/bash_completion.d/health-checker",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			return root.GenBashCompletion(os.Stdout)
 		},
