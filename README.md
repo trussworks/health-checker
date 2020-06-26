@@ -6,7 +6,12 @@
 
 ## Installation
 
-TBD
+For OSX Homebrew:
+
+```sh
+brew tap trussworks/tap
+brew install health-checker
+```
 
 ## Usage
 
@@ -33,7 +38,7 @@ Use "health-checker [command] --help" for more information about a command.
 Run the command like this:
 
 ```sh
-bin/health-checker check --schemes http,https --hosts "www.truss.works" --tries 10 --backoff 3 --log-level info --timeout 15m --paths "/"
+health-checker check --schemes http,https --hosts "www.truss.works" --tries 10 --backoff 3 --log-level info --timeout 15m --paths "/"
 ```
 
 Output will appear like this:
@@ -46,7 +51,7 @@ Output will appear like this:
 When mutual TLS authentication is required this command can be used like this:
 
 ```sh
-bin/health-checker check --schemes https --hosts "www.truss.works" --key "${KEY}" --cert "${CERT}" --ca "${CA}" --tries 10 --backoff 3 --log-level info --timeout 15m
+health-checker check --schemes https --hosts "www.truss.works" --key "${KEY}" --cert "${CERT}" --ca "${CA}" --tries 10 --backoff 3 --log-level info --timeout 15m
 ```
 
 To ensure there's no issue with reading the KEY, CERT, and CA the values must be base64 encoded. One way to do this is
