@@ -14,7 +14,7 @@ builds:
   main: main.go
 brews:
   - description: "health-checker is used to verity that websites are healthy following a deploy."
-    github:
+    tap:
       owner: trussworks
       name: homebrew-tap
     homepage: "https://github.com/trussworks/health-checker"
