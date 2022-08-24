@@ -1,7 +1,7 @@
 
 references:
   circleci:  &circleci trussworks/circleci:ea2483b4886b26b1006ae95e841497e61512b8c6
-  g
+
 jobs:
   release:
     docker:
