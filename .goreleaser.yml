@@ -23,7 +23,7 @@ brews:
       email: infra+github@truss.works
 dockers:
   -
-    binaries:
+    ids:
       - health-checker
     image_templates:
       - "trussworks/health-checker:{{ .Tag }}"
