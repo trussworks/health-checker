@@ -1,6 +1,5 @@
-
 references:
-  circleci:  &circleci trussworks/circleci:ea2483b4886b26b1006ae95e841497e61512b8c6
+  circleci: &circleci trussworks/circleci:ea2483b4886b26b1006ae95e841497e61512b8c6
 
 jobs:
   release:
@@ -17,14 +16,11 @@ jobs:
           command: docker login -u $DOCKER_USER -p $DOCKER_PASS
           name: Login to Docker Hub
       - run:
-            command: docker login -u $DOCKER_USER -p $DOCKER_PASS
-            name: Login to Docker Hub
-        - run:
-            command: docker run -it trussworks/health-checker:<< pipeline.git.tag >> help
-            name: Test that Docker container works
-        - run:
-            command: docker push trussworks/health-checker:<< pipeline.git.tag >>
-            name: Docker push
+          command: docker run -it trussworks/health-checker:<< pipeline.git.tag >> help
+          name: Test that Docker container works
+      - run:
+          command: docker push trussworks/health-checker:<< pipeline.git.tag >>
+          name: Docker push
 version: 2.1
 workflows:
   release:
