@@ -5,7 +5,6 @@ import (
 	"crypto/x509"
 	"encoding/base64"
 	"fmt"
-	"io/ioutil"
 	"log"
 	"net/http"
 	neturl "net/url"
@@ -323,19 +322,19 @@ func createHTTPClient(v *viper.Viper, logger *zap.Logger) (*http.Client, error) 
 
 		if len(clientKeyFile) > 0 && len(clientCertFile) > 0 {
 
-			clientKey, clientKeyErr := ioutil.ReadFile(clientKeyFile) // #nosec b/c we need to read a file from a user-defined path
+			clientKey, clientKeyErr := os.ReadFile(clientKeyFile) // #nosec b/c we need to read a file from a user-defined path
 			if clientKeyErr != nil {
 				return nil, errors.Wrap(clientKeyErr, "error reading client key file at "+clientKeyFile)
 			}
 
-			clientCert, clientCertErr := ioutil.ReadFile(clientCertFile) // #nosec b/c we need to read a file from a user-defined path
+			clientCert, clientCertErr := os.ReadFile(clientCertFile) // #nosec b/c we need to read a file from a user-defined path
 			if clientCertErr != nil {
 				return nil, errors.Wrap(clientCertErr, "error reading client cert file at "+clientKeyFile)
 			}
 
 			caBytes := make([]byte, 0)
 			if caFile := v.GetString(CAFileFlag); len(caFile) > 0 {
-				content, err := ioutil.ReadFile(caFile) // #nosec b/c we need to read a file from a user-defined path
+				content, err := os.ReadFile(caFile) // #nosec b/c we need to read a file from a user-defined path
 				if err != nil {
 					return nil, errors.Wrap(err, "error reading ca file at "+caFile)
 				}
