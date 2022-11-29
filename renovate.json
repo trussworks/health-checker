@@ -4,15 +4,6 @@
   ],
   "packageRules": [
     {
-      "automerge": true,
-      "matchUpdateTypes": [
-        "patch",
-        "pin",
-        "digest",
-        "minor"
-      ]
-    },
-    {
       "description": "Tag the waddlers Github Team for major updates",
       "matchUpdateTypes": [
         "major"
@@ -33,6 +24,8 @@
       ],
       "matchUpdateTypes": [
         "minor",
+        "patch",
+        "pin",
         "patch"
       ]
     }

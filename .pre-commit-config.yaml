@@ -31,8 +31,6 @@ repos:
         additional_dependencies:
           - mdformat-gfm
           - mdformat-toc
-        # mdformat fights with terraform_docs
-        exclude: README.m(ark)?d(own)?
 
   - repo: https://github.com/trussworks/pre-commit-hooks
     rev: v1.1.1
