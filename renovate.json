@@ -4,14 +4,14 @@
   ],
   "packageRules": [
     {
+      "automerge": true,
       "description": "Tag the waddlers Github Team for major updates",
       "matchUpdateTypes": [
         "major"
       ],
       "reviewers": [
         "team:waddlers"
-      ],
-      "versioning": "semver"
+      ]
     },
     {
       "automerge": true,
@@ -22,6 +22,11 @@
         "patch",
         "pin",
         "digest"
+      ]
+    },
+    {
+      "matchDatasources": [
+        "docker"
       ],
       "versioning": "semver"
     }
