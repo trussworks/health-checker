@@ -25,10 +25,11 @@
       ]
     },
     {
-      "matchDatasources": ["docker"],
+      "matchDatasources": [
+        "docker"
+      ],
       "versioning": "semver"
     }
-
   ],
   "pre-commit": {
     "enabled": true
