@@ -10,24 +10,20 @@
       ],
       "reviewers": [
         "team:waddlers"
-      ]
+      ],
+      "versioning": "semver"
     },
     {
       "automerge": true,
       "description": "Group minor and patch updates into a single PR",
       "groupName": "dependencies",
-      "managers": [
-        "terraform",
-        "pre-commit",
-        "gomod",
-        "dockerfile"
-      ],
       "matchUpdateTypes": [
         "minor",
         "patch",
         "pin",
         "digest"
-      ]
+      ],
+      "versioning": "semver"
     }
   ],
   "pre-commit": {
